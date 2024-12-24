@@ -5,8 +5,8 @@ import 'about_screen.dart';
 import 'home_screen.dart';
 import 'settings_screen.dart';
 import 'notes_screen.dart';
-import 'notification_screen.dart';
 import 'bookmarks_screen.dart';
+import 'profile_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -107,7 +107,10 @@ class CustomDrawer extends StatelessWidget {
             leading: const Icon(Icons.person),
             title: const Text('Profile'),
             onTap: () {
-              Navigator.pop(context); // Close the drawer
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfileScreen()),
+              );
             },
           ),
           // ListTile for Settings
