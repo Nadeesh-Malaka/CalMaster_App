@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'custom_drawer.dart'; // Import the custom drawer file
+import 'custom_drawer.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({Key? key}) : super(key: key);
@@ -12,9 +12,9 @@ class AboutScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xFF07139E), // 24% stop
-              Color(0xFF040C63), // 64% stop
-              Color(0xFF020738), // 86% stop
+              Color(0xFF07139E),
+              Color(0xFF040C63),
+              Color(0xFF020738),
             ],
             stops: [0.24, 0.64, 0.86],
             begin: Alignment.topCenter,
@@ -28,106 +28,85 @@ class AboutScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Row to align IconButton on the left and "About CalMaster" centered
-                  Row(
-                    children: [
-                      // Menu Icon Button (stays at the start)
-                      IconButton(
-                        icon: const Icon(Icons.menu, color: Colors.white),
-                        onPressed: () {
-                          Scaffold.of(context).openDrawer();
-                        },
-                      ),
-                      // Spacer to push the text to the center
-                      const Spacer(),
-                      // "About CalMaster" text (centered)
-                      const Text(
-                        "About CalMaster",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 25,
-                        ),
-                      ),
-                      const Spacer(), // Optional: If you want the text to be perfectly centered
-                    ],
+                  // Menu Icon
+                  IconButton(
+                    icon: const Icon(Icons.menu, color: Colors.white),
+                    onPressed: () {
+                      Scaffold.of(context).openDrawer();
+                    },
                   ),
+                  const SizedBox(height: 30),
 
-                  const SizedBox(
-                      height: 30), // Add spacing between Icon and next section
-
-                  // Main Content
-                  Card(
-                    color: Colors.white.withOpacity(0.1), // Slight transparency
-                    elevation: 8,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
+                  // Title
+                  const Text(
+                    "About",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(
-                          20.0), // Padding for content inside card
+                  ),
+                  const SizedBox(height: 20),
+
+                  // About Content
+                  Expanded(
+                    child: SingleChildScrollView(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(height: 15),
-
-                          // App Description
-                          const Text(
-                            "The Cal Master app is designed to simplify and enhance your calculation needs, offering a user-friendly interface, advanced features, and reliable performance. Whether for academic, professional, or personal purposes, it serves as the ultimate solution for all your arithmetic and mathematical tasks.",
+                        children: const [
+                          Text(
+                            "Welcome to CalMaster!",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 16,
-                              height:
-                                  1.5, // Adjust line spacing for readability
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          const SizedBox(height: 25),
-
-                          // Developer and other info
-                          const Text(
-                            "Developed by: Nadeesh Malaka",
+                          SizedBox(height: 10),
+                          Text(
+                            "CalMaster is your go-to application for quick calculations, note-taking, and productivity tools. "
+                            "With features like a BMI Calculator, GPA Calculator, and Notes, this app is designed to make your life easier.",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.white70,
                               fontSize: 16,
-                              height: 1.5,
                             ),
                           ),
-                          const SizedBox(height: 10),
-                          const Text(
-                            "UI: R. Pramode",
+                          SizedBox(height: 20),
+                          Text(
+                            "Features:",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 16,
-                              height: 1.5,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          const SizedBox(height: 10),
-
-                          const SizedBox(height: 10),
-                          const Text(
-                            "Initial Release Date: December 2024",
+                          SizedBox(height: 10),
+                          Text(
+                            "- BMI Calculator\n"
+                            "- GPA Calculator\n"
+                            "- Notes and Bookmarks\n"
+                            "- Notifications and Updates\n"
+                            "- User-friendly Interface",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.white70,
                               fontSize: 16,
-                              height: 1.5,
                             ),
                           ),
-                          const SizedBox(height: 10),
-                          const Text(
-                            "Version: 1.0",
+                          SizedBox(height: 20),
+                          Text(
+                            "Version: 1.0.0",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.white70,
                               fontSize: 16,
-                              height: 1.5,
+                              fontStyle: FontStyle.italic,
                             ),
                           ),
                         ],
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
 
-                  // Footer Section (Optional)
-                  const Spacer(),
+                  // Footer
                   const Center(
                     child: Text(
                       "CalMaster",
