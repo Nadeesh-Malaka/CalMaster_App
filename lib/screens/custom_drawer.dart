@@ -6,6 +6,7 @@ import 'home_screen.dart';
 import 'settings_screen.dart';
 import 'notes_screen.dart';
 import 'notification_screen.dart';
+import 'bookmarks_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -76,18 +77,19 @@ class CustomDrawer extends StatelessWidget {
             },
           ),
           // ListTile for Notifications
-ListTile(
-  leading: const Icon(Icons.notification_add),
-  title: const Text('Notifications'),
-  onTap: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const NotificationScreen(), // Add parentheses here
-      ),
-    );
-  },
-),
+          ListTile(
+            leading: const Icon(Icons.notification_add),
+            title: const Text('Notifications'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      const NotificationScreen(), // Add parentheses here
+                ),
+              );
+            },
+          ),
           // ListTile for Bookmarks
           ListTile(
             leading: const Icon(Icons.bookmark),
@@ -95,7 +97,8 @@ ListTile(
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const SettingsScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const BookmarksScreen()),
               );
             },
           ),
