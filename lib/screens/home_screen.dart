@@ -1,4 +1,5 @@
 import 'package:calmaster/screens/bmi_cal.dart';
+import 'package:calmaster/screens/discount_cal.dart';
 import 'package:calmaster/screens/gpa_cal.dart';
 import 'package:calmaster/screens/uni_cal.dart';
 import 'package:flutter/material.dart';
@@ -409,7 +410,8 @@ class HomeScreen extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const SimpleCal(),
+                                    builder: (context) =>
+                                        const DiscountCalculator(),
                                   ),
                                 );
                               },
