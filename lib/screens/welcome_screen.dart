@@ -9,7 +9,16 @@ class WelcomeScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.blue, Colors.indigo],
+            colors: [
+              Color(0xFF07139E), // 24% stop
+              Color(0xFF040C63), // 64% stop
+              Color(0xFF020738), // 86% stop
+            ],
+            stops: [
+              0.24,
+              0.64,
+              0.86
+            ], // Define the stops matching the percentages
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),

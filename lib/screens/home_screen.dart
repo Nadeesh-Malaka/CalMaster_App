@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'loading_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -7,7 +8,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: const Color(
+            0xFF07139E), // Example solid color for the AppBar background
         title: const Text('Welcome'),
         centerTitle: true,
         actions: [
@@ -23,16 +25,48 @@ class HomeScreen extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text(
-                'CalMaster Menu',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
+            DrawerHeader(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xFF07139E), // 24% stop
+                    Color(0xFF040C63), // 64% stop
+                    Color(0xFF020738), // 86% stop
+                  ],
+                  stops: [0.24, 0.64, 0.86],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
                 ),
+              ),
+              child: Column(
+                crossAxisAlignment:
+                    CrossAxisAlignment.start, // Align the content to the left
+                children: [
+                  // Wrap the Image in ClipOval to make it circular
+                  ClipOval(
+                    child: Image.asset(
+                      'assets/cal-logo.png',
+                      height: 75,
+                      width:
+                          75, // Keep width and height equal for a circular shape
+                      fit: BoxFit
+                          .cover, // Ensures the image is scaled to fill the circle
+                    ),
+                  ),
+
+                  const SizedBox(
+                      height:
+                          10), // Add some space between the image and the text
+
+                  const Text(
+                    'CalMaster',
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.white, // Text color
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
             ListTile(
@@ -86,9 +120,13 @@ class HomeScreen extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.logout),
-              title: const Text('logout'),
+              title: const Text('Logout'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const LoadingScreen()),
+                );
               },
             ),
           ],
@@ -97,7 +135,12 @@ class HomeScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.blue, Colors.indigo],
+            colors: [
+              Color(0xFF07139E), // 24% stop
+              Color(0xFF040C63), // 64% stop
+              Color(0xFF020738), // 86% stop
+            ],
+            stops: [0.24, 0.64, 0.86],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
