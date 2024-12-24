@@ -1,3 +1,4 @@
+import 'package:calmaster/screens/uni_cal.dart';
 import 'package:flutter/material.dart';
 import 'custom_drawer.dart'; // Import the custom drawer file
 import 'simple_Cal.dart';
@@ -268,7 +269,7 @@ class HomeScreen extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const SimpleCal(),
+                                    builder: (context) => const UniCal(),
                                   ),
                                 );
                               },
