@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'loading_screen.dart';
+import 'custom_drawer.dart'; // Import the custom drawer file
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -7,131 +7,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(
-            0xFF07139E), // Example solid color for the AppBar background
-        title: const Text('Welcome'),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              // Add search functionality here
-            },
-          ),
-        ],
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFF07139E), // 24% stop
-                    Color(0xFF040C63), // 64% stop
-                    Color(0xFF020738), // 86% stop
-                  ],
-                  stops: [0.24, 0.64, 0.86],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
-              ),
-              child: Column(
-                crossAxisAlignment:
-                    CrossAxisAlignment.start, // Align the content to the left
-                children: [
-                  // Wrap the Image in ClipOval to make it circular
-                  ClipOval(
-                    child: Image.asset(
-                      'assets/cal-logo.png',
-                      height: 75,
-                      width:
-                          75, // Keep width and height equal for a circular shape
-                      fit: BoxFit
-                          .cover, // Ensures the image is scaled to fill the circle
-                    ),
-                  ),
-
-                  const SizedBox(
-                      height:
-                          10), // Add some space between the image and the text
-
-                  const Text(
-                    'CalMaster',
-                    style: TextStyle(
-                      fontSize: 24,
-                      color: Colors.white, // Text color
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Home'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.note_alt),
-              title: const Text('Notes'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.notification_add),
-              title: const Text('Notifications'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.bookmark),
-              title: const Text('BookMarks'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.person),
-              title: const Text('Profile'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('Settings'),
-              onTap: () {
-                // Navigate to settings page (if available)
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.info),
-              title: const Text('About'),
-              onTap: () {
-                // Navigate to about page (if available)
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.logout),
-              title: const Text('Logout'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const LoadingScreen()),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: const CustomDrawer(),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -145,110 +21,400 @@ class HomeScreen extends StatelessWidget {
             end: Alignment.bottomCenter,
           ),
         ),
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  "Welcome",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
+        child: SafeArea(
+          child: Builder(
+            builder: (context) => Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Menu Icon (now works with Drawer)
+                  IconButton(
+                    icon: const Icon(Icons.menu, color: Colors.white),
+                    onPressed: () {
+                      Scaffold.of(context).openDrawer();
+                    },
                   ),
-                ),
-                const SizedBox(height: 8),
-                const Text(
-                  "Start off with the best calculators, conversions, and smart features for your daily tasks.",
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 16,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                GridView(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                  ),
-                  children: [
-                    _buildFeatureCard(
-                      context,
-                      icon: Icons.calculate,
-                      label: "Simple Calc",
-                      onTap: () {
-                        // Navigate to Simple Calculator screen
-                      },
-                    ),
-                    _buildFeatureCard(
-                      context,
-                      icon: Icons.accessibility_new,
-                      label: "BMI Calc",
-                      onTap: () {
-                        // Navigate to BMI Calculator screen
-                      },
-                    ),
-                    _buildFeatureCard(
-                      context,
-                      icon: Icons.school,
-                      label: "GPA Calc",
-                      onTap: () {
-                        // Navigate to GPA Calculator screen
-                      },
-                    ),
-                    _buildFeatureCard(
-                      context,
-                      icon: Icons.info,
-                      label: "About",
-                      onTap: () {
-                        // Navigate to About screen
-                      },
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 
-  Widget _buildFeatureCard(BuildContext context,
-      {required IconData icon,
-      required String label,
-      required VoidCallback onTap}) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Card(
-        color: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
-        ),
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                icon,
-                size: 40,
-                color: Colors.blue,
+                  // Welcome Section
+                  const Center(
+                    child: Column(
+                      children: [
+                        Text(
+                          "Welcome",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 38,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          "Your all-in-one solution for calculations, \nconversions, and more. Simplify your daily \ntasks with our easy-to-use tools!",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  // Search Bar
+                  const SizedBox(height: 20),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Row(
+                      children: [
+                        const Expanded(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: "Search",
+                              border: InputBorder.none,
+                            ),
+                          ),
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.search, color: Colors.black),
+                          onPressed: () {
+                            // Add search functionality
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  // Calculators Section
+                  const SizedBox(height: 30),
+                  const Text(
+                    "Calculators",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment
+                        .start, // Align to start to reduce space
+                    children: [
+                      // Column 1: "All"
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal:
+                                8.0), // Adjust padding to reduce space between columns
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 37,
+                              width: 79,
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(70, 0, 0,
+                                    0), // Change to non-transparent color
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: const Center(
+                                // Added Center widget to center the text
+                                child: Text(
+                                  "All",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Roboto',
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      // Column 2: "Top"
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal:
+                                8.0), // Adjust padding to reduce space between columns
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 37,
+                              width: 79,
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(70, 0, 0,
+                                    25), // Change to non-transparent color
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: const Center(
+                                // Added Center widget to center the text
+                                child: Text(
+                                  "Top",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Roboto',
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      // Column 3: "Recent"
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal:
+                                8.0), // Adjust padding to reduce space between columns
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 37,
+                              width: 79,
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(70, 0, 0,
+                                    25), // Change to non-transparent color
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: const Center(
+                                // Added Center widget to center the text
+                                child: Text(
+                                  "Recent",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Roboto',
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  const SizedBox(height: 20),
+
+                  //--------Cal Apps start--------------
+
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        // Simple Calculator
+                        const SizedBox(width: 10),
+                        Column(
+                          children: [
+                            Container(
+                              height: 140,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    'assets/simplecal.png', // Replace with your image path
+                                    height: 50,
+                                    width: 50,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  const SizedBox(height: 5),
+                                  const Text(
+                                    "Simple Cal",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        const SizedBox(width: 30),
+
+                        // Unit Calculator
+                        Column(
+                          children: [
+                            Container(
+                              height: 140,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    'assets/unitcal.png', // Replace with your image path
+                                    height: 50,
+                                    width: 50,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  const SizedBox(height: 5),
+                                  const Text(
+                                    "Unit Cal",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        const SizedBox(width: 30),
+
+                        // BMI Calculator
+                        Column(
+                          children: [
+                            Container(
+                              height: 140,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    'assets/bmi.png', // Replace with your image path
+                                    height: 60,
+                                    width: 60,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  const SizedBox(height: 5),
+                                  const Text(
+                                    "BMI",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        const SizedBox(width: 30),
+
+                        // GPA Calculator
+                        Column(
+                          children: [
+                            Container(
+                              height: 140,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    'assets/gpa.png', // Replace with your image path
+                                    height: 60,
+                                    width: 60,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  const SizedBox(height: 5),
+                                  const Text(
+                                    "GPA Cal",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        const SizedBox(width: 30),
+
+                        // Discount Calculator
+                        Column(
+                          children: [
+                            Container(
+                              height: 140,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    'assets/discount.png', // Replace with your image path
+                                    height: 60,
+                                    width: 60,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  const SizedBox(height: 5),
+                                  const Text(
+                                    "Discount Cal",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  //--------Cal Apps end--------------
+
+                  //2nd row
+
+                  const SizedBox(height: 30),
+
+                  // Footer Section (Optional)
+                  const Spacer(),
+                  const Center(
+                    child: Text(
+                      "CalMaster",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(height: 8),
-              Text(
-                label,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),
