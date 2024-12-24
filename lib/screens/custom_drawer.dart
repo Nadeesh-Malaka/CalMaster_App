@@ -3,6 +3,7 @@ import 'loading_screen.dart';
 import 'about_screen.dart';
 import 'home_screen.dart';
 import 'settings_screen.dart';
+import 'notes_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -66,7 +67,10 @@ class CustomDrawer extends StatelessWidget {
             leading: const Icon(Icons.note_alt),
             title: const Text('Notes'),
             onTap: () {
-              Navigator.pop(context); // Close the drawer
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const NotesScreen()),
+              );
             },
           ),
           // ListTile for Notifications
@@ -74,7 +78,10 @@ class CustomDrawer extends StatelessWidget {
             leading: const Icon(Icons.notification_add),
             title: const Text('Notifications'),
             onTap: () {
-              Navigator.pop(context); // Close the drawer
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SettingsScreen()),
+              );
             },
           ),
           // ListTile for Bookmarks
@@ -82,7 +89,10 @@ class CustomDrawer extends StatelessWidget {
             leading: const Icon(Icons.bookmark),
             title: const Text('BookMarks'),
             onTap: () {
-              Navigator.pop(context); // Close the drawer
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SettingsScreen()),
+              );
             },
           ),
           // ListTile for Profile
