@@ -1,9 +1,11 @@
+import 'package:calmaster/screens/notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'loading_screen.dart';
 import 'about_screen.dart';
 import 'home_screen.dart';
 import 'settings_screen.dart';
 import 'notes_screen.dart';
+import 'notification_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -74,16 +76,18 @@ class CustomDrawer extends StatelessWidget {
             },
           ),
           // ListTile for Notifications
-          ListTile(
-            leading: const Icon(Icons.notification_add),
-            title: const Text('Notifications'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const SettingsScreen()),
-              );
-            },
-          ),
+ListTile(
+  leading: const Icon(Icons.notification_add),
+  title: const Text('Notifications'),
+  onTap: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const NotificationScreen(), // Add parentheses here
+      ),
+    );
+  },
+),
           // ListTile for Bookmarks
           ListTile(
             leading: const Icon(Icons.bookmark),
