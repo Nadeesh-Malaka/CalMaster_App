@@ -44,6 +44,7 @@ class _UniCalState extends State<UniCal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -63,6 +64,16 @@ class _UniCalState extends State<UniCal> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                // Back Button
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: IconButton(
+                    icon: const Icon(Icons.arrow_back, color: Colors.white),
+                    onPressed: () {
+                      Navigator.pop(context); // Navigate back
+                    },
+                  ),
+                ),
                 const Text(
                   'Unit Converter',
                   style: TextStyle(
