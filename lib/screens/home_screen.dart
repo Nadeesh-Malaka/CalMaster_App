@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'custom_drawer.dart'; // Import the custom drawer file
+import 'simple_Cal.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -216,32 +217,42 @@ class HomeScreen extends StatelessWidget {
                         const SizedBox(width: 10),
                         Column(
                           children: [
-                            Container(
-                              height: 140,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    'assets/simplecal.png', // Replace with your image path
-                                    height: 50,
-                                    width: 50,
-                                    fit: BoxFit.cover,
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const SimpleCal(),
                                   ),
-                                  const SizedBox(height: 5),
-                                  const Text(
-                                    "Simple Cal",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
+                                );
+                              },
+                              child: Container(
+                                height: 140,
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      'assets/simplecal.png', // Replace with your image path
+                                      height: 50,
+                                      width: 50,
+                                      fit: BoxFit.cover,
                                     ),
-                                  ),
-                                ],
+                                    const SizedBox(height: 5),
+                                    const Text(
+                                      "Simple Cal",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -252,32 +263,42 @@ class HomeScreen extends StatelessWidget {
                         // Unit Calculator
                         Column(
                           children: [
-                            Container(
-                              height: 140,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    'assets/unitcal.png', // Replace with your image path
-                                    height: 50,
-                                    width: 50,
-                                    fit: BoxFit.cover,
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const SimpleCal(),
                                   ),
-                                  const SizedBox(height: 5),
-                                  const Text(
-                                    "Unit Cal",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
+                                );
+                              },
+                              child: Container(
+                                height: 140,
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      'assets/unitcal.png', // Replace with your image path
+                                      height: 50,
+                                      width: 50,
+                                      fit: BoxFit.cover,
                                     ),
-                                  ),
-                                ],
+                                    const SizedBox(height: 5),
+                                    const Text(
+                                      "Unit Cal",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -288,32 +309,42 @@ class HomeScreen extends StatelessWidget {
                         // BMI Calculator
                         Column(
                           children: [
-                            Container(
-                              height: 140,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    'assets/bmi.png', // Replace with your image path
-                                    height: 60,
-                                    width: 60,
-                                    fit: BoxFit.cover,
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const SimpleCal(),
                                   ),
-                                  const SizedBox(height: 5),
-                                  const Text(
-                                    "BMI",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
+                                );
+                              },
+                              child: Container(
+                                height: 140,
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      'assets/bmi.png', // Replace with your image path
+                                      height: 60,
+                                      width: 60,
+                                      fit: BoxFit.cover,
                                     ),
-                                  ),
-                                ],
+                                    const SizedBox(height: 5),
+                                    const Text(
+                                      "BMI",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -324,32 +355,42 @@ class HomeScreen extends StatelessWidget {
                         // GPA Calculator
                         Column(
                           children: [
-                            Container(
-                              height: 140,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    'assets/gpa.png', // Replace with your image path
-                                    height: 60,
-                                    width: 60,
-                                    fit: BoxFit.cover,
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const SimpleCal(),
                                   ),
-                                  const SizedBox(height: 5),
-                                  const Text(
-                                    "GPA Cal",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
+                                );
+                              },
+                              child: Container(
+                                height: 140,
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      'assets/gpa.png', // Replace with your image path
+                                      height: 60,
+                                      width: 60,
+                                      fit: BoxFit.cover,
                                     ),
-                                  ),
-                                ],
+                                    const SizedBox(height: 5),
+                                    const Text(
+                                      "GPA Cal",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -360,32 +401,42 @@ class HomeScreen extends StatelessWidget {
                         // Discount Calculator
                         Column(
                           children: [
-                            Container(
-                              height: 140,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    'assets/discount.png', // Replace with your image path
-                                    height: 60,
-                                    width: 60,
-                                    fit: BoxFit.cover,
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const SimpleCal(),
                                   ),
-                                  const SizedBox(height: 5),
-                                  const Text(
-                                    "Discount Cal",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
+                                );
+                              },
+                              child: Container(
+                                height: 140,
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      'assets/discount.png', // Replace with your image path
+                                      height: 60,
+                                      width: 60,
+                                      fit: BoxFit.cover,
                                     ),
-                                  ),
-                                ],
+                                    const SizedBox(height: 5),
+                                    const Text(
+                                      "Discount Cal",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
