@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'loading_screen.dart';
 import 'about_screen.dart';
 import 'home_screen.dart';
+import 'settings_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -97,7 +98,10 @@ class CustomDrawer extends StatelessWidget {
             leading: const Icon(Icons.settings),
             title: const Text('Settings'),
             onTap: () {
-              // Navigate to settings page (if available)
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SettingsScreen()),
+              );
             },
           ),
           // ListTile for About
