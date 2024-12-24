@@ -1,6 +1,17 @@
-# calmaster
+# CalMaster App
 
-A new Flutter project.
+CalMaster is a sleek, all-in-one calculator app built with Flutter, designed to provide a variety of calculator tools such as a Simple Calculator, BMI Calculator, and GPA Calculator. This app is perfect for students, professionals, and anyone needing quick and accurate calculations.
+
+---
+
+## **Tech Stack**
+
+- **Framework**: Flutter
+- **Language**: Dart
+- **Version Control**: Git and GitHub
+
+---
+
 
 ## Getting Started
 
