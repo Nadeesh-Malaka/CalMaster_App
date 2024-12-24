@@ -12,6 +12,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       resizeToAvoidBottomInset: true, 
       drawer: const CustomDrawer(),
       body: Container(
         decoration: const BoxDecoration(
