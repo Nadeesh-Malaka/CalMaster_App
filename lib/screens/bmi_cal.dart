@@ -84,14 +84,15 @@ class _BMICalculatorState extends State<BMICalculator> {
                         ),
                         DropdownButton<int>(
                           value: heightFeet,
-                          dropdownColor: Colors.blueGrey,
+                          dropdownColor: Colors.blueGrey, // Dropdown background
                           items: List.generate(8, (index) => index + 1)
                               .map((value) => DropdownMenuItem<int>(
                                     value: value,
                                     child: Text(
                                       value.toString(),
-                                      style:
-                                          const TextStyle(color: Colors.black),
+                                      style: const TextStyle(
+                                        color: Colors.white, // White text
+                                      ),
                                     ),
                                   ))
                               .toList(),
@@ -100,6 +101,7 @@ class _BMICalculatorState extends State<BMICalculator> {
                               heightFeet = value!;
                             });
                           },
+                          iconEnabledColor: Colors.white, // Arrow color
                         ),
                       ],
                     ),
@@ -111,14 +113,15 @@ class _BMICalculatorState extends State<BMICalculator> {
                         ),
                         DropdownButton<int>(
                           value: heightInches,
-                          dropdownColor: Colors.blueGrey,
+                          dropdownColor: Colors.blueGrey, // Dropdown background
                           items: List.generate(12, (index) => index)
                               .map((value) => DropdownMenuItem<int>(
                                     value: value,
                                     child: Text(
                                       value.toString(),
-                                      style:
-                                          const TextStyle(color: Colors.black),
+                                      style: const TextStyle(
+                                        color: Colors.white, // White text
+                                      ),
                                     ),
                                   ))
                               .toList(),
@@ -127,6 +130,7 @@ class _BMICalculatorState extends State<BMICalculator> {
                               heightInches = value!;
                             });
                           },
+                          iconEnabledColor: Colors.white, // Arrow color
                         ),
                       ],
                     ),
