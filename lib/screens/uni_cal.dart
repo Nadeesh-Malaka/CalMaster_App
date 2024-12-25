@@ -100,11 +100,18 @@ class _UniCalState extends State<UniCal> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     DropdownButton<String>(
+                      dropdownColor: Colors.blue[900], // Dropdown background
                       value: fromUnit,
                       items: ['cm', 'm', 'km']
                           .map((unit) => DropdownMenuItem(
                                 value: unit,
-                                child: Text(unit),
+                                child: Text(
+                                  unit,
+                                  style: const TextStyle(
+                                    fontSize: 18, // Larger font
+                                    color: Colors.white, // White text
+                                  ),
+                                ),
                               ))
                           .toList(),
                       onChanged: (value) {
@@ -112,14 +119,23 @@ class _UniCalState extends State<UniCal> {
                           fromUnit = value!;
                         });
                       },
+                      iconEnabledColor: Colors.white, // Arrow color
                     ),
-                    const Icon(Icons.swap_horiz, color: Colors.white),
+                    Icon(Icons.swap_horiz,
+                        color: Colors.white, size: 30), // Larger icon
                     DropdownButton<String>(
+                      dropdownColor: Colors.blue[900], // Dropdown background
                       value: toUnit,
                       items: ['cm', 'm', 'km']
                           .map((unit) => DropdownMenuItem(
                                 value: unit,
-                                child: Text(unit),
+                                child: Text(
+                                  unit,
+                                  style: const TextStyle(
+                                    fontSize: 18, // Larger font
+                                    color: Colors.white, // White text
+                                  ),
+                                ),
                               ))
                           .toList(),
                       onChanged: (value) {
@@ -127,6 +143,7 @@ class _UniCalState extends State<UniCal> {
                           toUnit = value!;
                         });
                       },
+                      iconEnabledColor: Colors.white, // Arrow color
                     ),
                   ],
                 ),
