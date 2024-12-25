@@ -18,7 +18,11 @@ class LoadingScreen extends StatelessWidget {
               Color(0xFF040C63), // 64% stop
               Color(0xFF020738), // 86% stop
             ],
-            stops: [0.24, 0.64, 0.86], // Define the stops matching the percentages
+            stops: [
+              0.24,
+              0.64,
+              0.86
+            ], // Define the stops matching the percentages
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -31,7 +35,7 @@ class LoadingScreen extends StatelessWidget {
                 "CalMaster",
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 28,
+                  fontSize: 38,
                   fontWeight: FontWeight.bold,
                 ),
               ),

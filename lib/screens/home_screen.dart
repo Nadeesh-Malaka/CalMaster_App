@@ -50,11 +50,11 @@ class HomeScreen extends StatelessWidget {
                           "Welcome",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 38,
+                            fontSize: 42,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 8),
+                        SizedBox(height: 15),
                         Text(
                           "Your all-in-one solution for calculations, \nconversions, and more. Simplify your daily \ntasks with our easy-to-use tools!",
                           textAlign: TextAlign.center,
@@ -68,7 +68,7 @@ class HomeScreen extends StatelessWidget {
                   ),
 
                   // Search Bar
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 40),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     decoration: BoxDecoration(
@@ -96,9 +96,9 @@ class HomeScreen extends StatelessWidget {
                   ),
 
                   // Calculators Section
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 40),
                   const Text(
-                    "Calculators",
+                    "  Calculators",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
@@ -106,7 +106,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 30),
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment
@@ -288,9 +288,9 @@ class HomeScreen extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Image.asset(
-                                      'assets/unitcal.png', // Replace with your image path
-                                      height: 50,
-                                      width: 50,
+                                      'assets/unitcal3.png', // Replace with your image path
+                                      height: 55,
+                                      width: 55,
                                       fit: BoxFit.cover,
                                     ),
                                     const SizedBox(height: 5),
@@ -381,8 +381,8 @@ class HomeScreen extends StatelessWidget {
                                   children: [
                                     Image.asset(
                                       'assets/gpa.png', // Replace with your image path
-                                      height: 60,
-                                      width: 60,
+                                      height: 55,
+                                      width: 55,
                                       fit: BoxFit.cover,
                                     ),
                                     const SizedBox(height: 5),
@@ -428,8 +428,8 @@ class HomeScreen extends StatelessWidget {
                                   children: [
                                     Image.asset(
                                       'assets/discount.png', // Replace with your image path
-                                      height: 60,
-                                      width: 60,
+                                      height: 55,
+                                      width: 55,
                                       fit: BoxFit.cover,
                                     ),
                                     const SizedBox(height: 5),
@@ -452,6 +452,20 @@ class HomeScreen extends StatelessWidget {
                   ),
 
                   //--------Cal Apps end--------------
+
+                  const SizedBox(height: 30),
+
+                  ///CHATGPT CHECH this text feild match with ,if not edit or modify
+
+                  Text(
+                    "      << Scrolle Left ",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Roboto',
+                    ),
+                  ),
 
                   //2nd row
 
