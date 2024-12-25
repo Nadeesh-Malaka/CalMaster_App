@@ -85,7 +85,7 @@ class _DiscountCalculatorState extends State<DiscountCalculator> {
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.8),
+                    color: const Color(0xFF040C63),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Column(
