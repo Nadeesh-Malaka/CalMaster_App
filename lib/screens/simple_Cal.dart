@@ -76,124 +76,129 @@ class _SimpleCalState extends State<SimpleCal> {
           ),
         ),
         child: SafeArea(
-          child: SingleChildScrollView(
-            // Add scrollable container
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Back Button
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back, color: Colors.white),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  const SizedBox(height: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // Top Content (Calculator and Buttons)
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Back Button
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    const SizedBox(height: 20),
 
-                  // Screen Title
-                  const Center(
-                    child: Text(
-                      "Simple Cal",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
+                    // Screen Title
+                    const Center(
+                      child: Text(
+                        "Simple Cal",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 30),
+                    const SizedBox(height: 30),
 
-                  // Calculator UI
-                  Container(
-                    padding: const EdgeInsets.all(20.0),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF040C63),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        // Display Section
-                        Container(
-                          height: 60,
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          alignment: Alignment.centerRight,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(30),
+                    // Calculator UI
+                    Container(
+                      padding: const EdgeInsets.all(20.0),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF040C63),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          // Display Section
+                          Container(
+                            height: 60,
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 16.0),
+                            alignment: Alignment.centerRight,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  input,
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.black54,
+                                  ),
+                                ),
+                                Text(
+                                  result,
+                                  style: const TextStyle(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          const SizedBox(height: 20),
+
+                          // Buttons
+                          GridView.count(
+                            crossAxisCount: 4,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
                             children: [
-                              Text(
-                                input,
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.black54,
-                                ),
-                              ),
-                              Text(
-                                result,
-                                style: const TextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
-                              ),
+                              _buildButton("7"),
+                              _buildButton("8"),
+                              _buildButton("9"),
+                              _buildButton("+"),
+                              _buildButton("4"),
+                              _buildButton("5"),
+                              _buildButton("6"),
+                              _buildButton("-"),
+                              _buildButton("1"),
+                              _buildButton("2"),
+                              _buildButton("3"),
+                              _buildButton("×"),
+                              _buildButton("C"),
+                              _buildButton("0"),
+                              _buildButton("="),
+                              _buildButton("%"),
                             ],
                           ),
-                        ),
-                        const SizedBox(height: 20),
-
-                        // Buttons
-                        GridView.count(
-                          crossAxisCount: 4,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 10,
-                          children: [
-                            _buildButton("7"),
-                            _buildButton("8"),
-                            _buildButton("9"),
-                            _buildButton("+"),
-                            _buildButton("4"),
-                            _buildButton("5"),
-                            _buildButton("6"),
-                            _buildButton("-"),
-                            _buildButton("1"),
-                            _buildButton("2"),
-                            _buildButton("3"),
-                            _buildButton("×"),
-                            _buildButton("C"),
-                            _buildButton("0"),
-                            _buildButton("="),
-                            _buildButton("%"),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  const SizedBox(height: 20), // Add spacing at the bottom
-
-                  // Footer Section
-                  const Center(
-                    child: Text(
-                      "CalMaster",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                        ],
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
+
+              // Footer Section
+              const Padding(
+                padding: EdgeInsets.only(bottom: 16.0),
+                child: Center(
+                  child: Text(
+                    "CalMaster",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
